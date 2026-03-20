@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "flagged",
+      "namespace": "ns11",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "a",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "c",
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

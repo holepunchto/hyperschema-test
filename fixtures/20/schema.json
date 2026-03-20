@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "coord",
+      "namespace": "ns20",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "lat",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        },
+        {
+          "name": "lng",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "namespace": "ns20",
+      "alias": "string",
+      "version": 1
+    },
+    {
+      "name": "meta",
+      "namespace": "ns20",
+      "alias": "uint",
+      "version": 1
+    },
+    {
+      "name": "place",
+      "namespace": "ns20",
+      "compact": false,
+      "flagsPosition": 2,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "name",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "coord",
+          "inline": true,
+          "type": "@ns20/coord",
+          "version": 1
+        },
+        {
+          "name": "labels",
+          "array": true,
+          "type": "@ns20/label",
+          "version": 1
+        },
+        {
+          "name": "meta",
+          "type": "@ns20/meta",
+          "version": 1
+        },
+        {
+          "name": "rank",
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

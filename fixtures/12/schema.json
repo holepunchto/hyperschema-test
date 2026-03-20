@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "meta",
+      "namespace": "ns12",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "version",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "flags",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "packet",
+      "namespace": "ns12",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "meta",
+          "inline": true,
+          "type": "@ns12/meta",
+          "version": 1
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

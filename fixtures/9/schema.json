@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "tag",
+      "namespace": "ns9",
+      "alias": "string",
+      "version": 1
+    },
+    {
+      "name": "tagged",
+      "namespace": "ns9",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "tag",
+          "type": "@ns9/tag",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

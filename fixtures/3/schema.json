@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "point",
+      "namespace": "ns3",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "x",
+          "required": true,
+          "type": "int",
+          "version": 1
+        },
+        {
+          "name": "y",
+          "required": true,
+          "type": "int",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

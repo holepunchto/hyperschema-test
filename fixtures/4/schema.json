@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "measurement",
+      "namespace": "ns4",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "active",
+          "required": false,
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

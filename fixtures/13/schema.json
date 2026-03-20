@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "widths",
+      "namespace": "ns13",
+      "compact": false,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "a",
+          "required": true,
+          "type": "uint8",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "required": true,
+          "type": "uint16",
+          "version": 1
+        },
+        {
+          "name": "c",
+          "required": true,
+          "type": "uint32",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

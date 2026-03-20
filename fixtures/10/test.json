@@ -1,0 +1,26 @@
+{
+  "values": [
+    { "type": "click", "payload": "button-1", "ts": { "sec": 1700000000, "nsec": 0 } },
+    { "type": "submit", "payload": null, "ts": { "sec": 0, "nsec": 500000000 } },
+    { "type": "load", "payload": "/page", "ts": null },
+    { "type": "error", "payload": "oops", "ts": { "sec": 9999, "nsec": 999999 } },
+    { "type": "open", "payload": null, "ts": { "sec": 1, "nsec": 1 } },
+    { "type": "close", "payload": "tab-2", "ts": null },
+    { "type": "resize", "payload": "1024x768", "ts": { "sec": 100, "nsec": 0 } },
+    { "type": "scroll", "payload": null, "ts": { "sec": 200, "nsec": 0 } },
+    { "type": "focus", "payload": "input#1", "ts": { "sec": 300, "nsec": 0 } },
+    { "type": "blur", "payload": null, "ts": null }
+  ],
+  "encoded": [
+    "05636c69636b0308627574746f6e2d31fe00f1536500",
+    "067375626d69740200fe0065cd1d",
+    "046c6f616401052f70616765",
+    "056572726f7203046f6f7073fd0f27fe3f420f00",
+    "046f70656e020101",
+    "05636c6f736501057461622d32",
+    "06726573697a65030831303234783736386400",
+    "067363726f6c6c02c800",
+    "05666f6375730307696e7075742331fd2c0100",
+    "04626c757200"
+  ]
+}

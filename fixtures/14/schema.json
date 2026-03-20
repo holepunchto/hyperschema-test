@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "delta",
+      "namespace": "ns14",
+      "compact": false,
+      "flagsPosition": 2,
+      "fields": [
+        {
+          "name": "dx",
+          "required": true,
+          "type": "int",
+          "version": 1
+        },
+        {
+          "name": "dy",
+          "required": true,
+          "type": "int",
+          "version": 1
+        },
+        {
+          "name": "dz",
+          "type": "int",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

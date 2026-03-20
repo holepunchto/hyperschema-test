@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "timestamp",
+      "namespace": "common",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "sec",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "nsec",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "event",
+      "namespace": "events",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "type",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "payload",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "ts",
+          "type": "@common/timestamp",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "floats",
+      "namespace": "ns15",
+      "compact": false,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "f32",
+          "required": true,
+          "type": "float32",
+          "version": 1
+        },
+        {
+          "name": "f64",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

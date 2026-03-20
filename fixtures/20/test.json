@@ -1,0 +1,58 @@
+{
+  "values": [
+    { "id": 1, "name": "Origin", "coord": { "lat": 0, "lng": 0 }, "labels": [] },
+    {
+      "id": 2,
+      "name": "Paris",
+      "coord": { "lat": 48.8566, "lng": 2.3522 },
+      "labels": ["city", "capital"],
+      "meta": 2161000,
+      "rank": 1
+    },
+    { "id": 3, "name": "Tokyo", "coord": null, "labels": null, "meta": null, "rank": 2 },
+    {
+      "id": 4,
+      "name": "New York",
+      "coord": { "lat": 40.7128, "lng": -74.006 },
+      "labels": ["city"],
+      "meta": 10001
+    },
+    { "id": 5, "name": "Null Island", "coord": { "lat": 0, "lng": 0 }, "labels": ["joke"] },
+    {
+      "id": 6,
+      "name": "Sydney",
+      "coord": { "lat": -33.8688, "lng": 151.2093 },
+      "labels": [],
+      "rank": 3
+    },
+    { "id": 7, "name": "Empty", "coord": null, "labels": [] },
+    {
+      "id": 8,
+      "name": "London",
+      "coord": { "lat": 51.5074, "lng": -0.1278 },
+      "labels": ["city", "capital", "historic"],
+      "meta": 1572,
+      "rank": 4
+    },
+    { "id": 9, "name": "Tiny", "coord": { "lat": 1, "lng": 1 }, "labels": null, "rank": 99 },
+    {
+      "id": 10,
+      "name": "Full",
+      "coord": { "lat": -90, "lng": 180 },
+      "labels": ["a", "b", "c", "d", "e"],
+      "rank": 0
+    }
+  ],
+  "encoded": [
+    "01064f726967696e030000000000000000000000000000000000",
+    "020550617269730f76e09c11a56d4840a835cd3b4ed10240020463697479076361706974616cfe68f9200001",
+    "0305546f6b796f0802",
+    "04084e657720596f726b075e4bc8073d5b4440aaf1d24d628052c0010463697479fd1127",
+    "050b4e756c6c2049736c616e64030000000000000000000000000000000001046a6f6b65",
+    "06065379646e65790be561a1d634ef40c0b1e1e995b2e662400003",
+    "0705456d7074790200",
+    "08064c6f6e646f6e0fc5feb27bf2c04940ebe2361ac05bc0bf030463697479076361706974616c08686973746f726963fd240604",
+    "090454696e7909000000000000f03f000000000000f03f63",
+    "0a0446756c6c0300000000008056c000000000008066400501610162016301640165"
+  ]
+}

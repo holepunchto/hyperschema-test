@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "score",
+      "namespace": "ns6",
+      "alias": "uint",
+      "version": 1
+    },
+    {
+      "name": "scores",
+      "namespace": "ns6",
+      "array": true,
+      "type": "@ns6/score"
+    }
+  ]
+}

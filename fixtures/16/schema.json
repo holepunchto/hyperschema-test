@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "sparse",
+      "namespace": "ns16",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "score",
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

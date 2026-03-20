@@ -1,0 +1,31 @@
+{
+  "name": "hyperschema-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brittle": "^3.19.1",
+    "compact-encoding": "^2.19.0",
+    "hyperschema": "^1.20.1",
+    "test-tmp": "^1.4.0"
+  },
+  "devDependencies": {
+    "lunte": "^1.6.0",
+    "prettier": "^3.8.1",
+    "prettier-config-holepunch": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/hyperschema-fixtures.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/holepunchto/hyperschema-fixtures/issues"
+  },
+  "homepage": "https://github.com/holepunchto/hyperschema-fixtures#readme"
+}

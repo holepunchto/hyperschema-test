@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "rich",
+      "namespace": "ns18",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "age",
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "active",
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "score",
+          "type": "float64",
+          "version": 1
+        },
+        {
+          "name": "bio",
+          "type": "string",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

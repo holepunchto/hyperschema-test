@@ -1,0 +1,26 @@
+{
+  "values": [
+    { "active": true, "value": 0 },
+    { "active": false, "value": 1 },
+    { "active": true, "value": -1 },
+    { "active": false, "value": 3.14159265358979 },
+    { "active": true, "value": 1e100 },
+    { "active": false, "value": -1e-100 },
+    { "active": true, "value": 9007199254740991 },
+    { "active": false, "value": -9007199254740991 },
+    { "active": true, "value": 0.30000000000000004 },
+    { "active": false, "value": 42 }
+  ],
+  "encoded": [
+    "010000000000000000",
+    "00000000000000f03f",
+    "01000000000000f0bf",
+    "00112d4454fb210940",
+    "017dc39425ad49b254",
+    "0030058ee42eff2bab",
+    "01ffffffffffff3f43",
+    "00ffffffffffff3fc3",
+    "01343333333333d33f",
+    "000000000000004540"
+  ]
+}

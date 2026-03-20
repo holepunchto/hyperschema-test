@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "address",
+      "namespace": "ns8",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "street",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "person",
+      "namespace": "ns8",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "name",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "address",
+          "type": "@ns8/address",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

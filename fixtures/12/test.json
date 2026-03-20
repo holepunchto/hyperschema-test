@@ -1,0 +1,26 @@
+{
+  "values": [
+    { "id": 1, "meta": { "version": 1, "flags": 0 }, "body": "ping" },
+    { "id": 2, "meta": { "version": 2, "flags": 1 }, "body": null },
+    { "id": 3, "meta": { "version": 1, "flags": 3 }, "body": "data" },
+    { "id": 4, "meta": null, "body": "no meta" },
+    { "id": 5, "meta": { "version": 10, "flags": 255 }, "body": null },
+    { "id": 6, "meta": null, "body": null },
+    { "id": 7, "meta": { "version": 0, "flags": 0 }, "body": "" },
+    { "id": 8, "meta": { "version": 99, "flags": 1 }, "body": "pong" },
+    { "id": 9, "meta": null, "body": "x" },
+    { "id": 10, "meta": { "version": 5, "flags": 5 }, "body": "hello" }
+  ],
+  "encoded": [
+    "010301000470696e67",
+    "02010201",
+    "030301030464617461",
+    "0402076e6f206d657461",
+    "05010afdff00",
+    "0600",
+    "07010000",
+    "0803630104706f6e67",
+    "09020178",
+    "0a0305050568656c6c6f"
+  ]
+}

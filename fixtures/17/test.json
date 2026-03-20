@@ -1,0 +1,32 @@
+{
+  "values": [
+    { "id": 1, "name": null, "age": null, "active": null, "score": null, "bio": null },
+    { "id": 2, "name": "Alice", "age": null, "active": null, "score": null, "bio": null },
+    { "id": 3, "name": null, "age": 30, "active": null, "score": null, "bio": null },
+    { "id": 4, "name": null, "age": null, "active": true, "score": null, "bio": null },
+    { "id": 5, "name": null, "age": null, "active": null, "score": 9.5, "bio": null },
+    { "id": 6, "name": null, "age": null, "active": null, "score": null, "bio": "Hi" },
+    { "id": 7, "name": "Bob", "age": 25, "active": true, "score": 8, "bio": "Dev" },
+    { "id": 8, "name": "Carol", "age": null, "active": false, "score": null, "bio": null },
+    { "id": 9, "name": null, "age": 0, "active": false, "score": 0, "bio": "" },
+    { "id": 10, "name": "Dave", "age": 40, "active": null, "score": 7.777, "bio": null }
+  ],
+  "encoded": [
+    { "type": "Buffer", "data": [1, 0] },
+    { "type": "Buffer", "data": [2, 1, 5, 65, 108, 105, 99, 101] },
+    { "type": "Buffer", "data": [3, 2, 30] },
+    { "type": "Buffer", "data": [4, 4] },
+    { "type": "Buffer", "data": [5, 8, 0, 0, 0, 0, 0, 0, 35, 64] },
+    { "type": "Buffer", "data": [6, 16, 2, 72, 105] },
+    {
+      "type": "Buffer",
+      "data": [7, 31, 3, 66, 111, 98, 25, 0, 0, 0, 0, 0, 0, 32, 64, 3, 68, 101, 118]
+    },
+    { "type": "Buffer", "data": [8, 1, 5, 67, 97, 114, 111, 108] },
+    { "type": "Buffer", "data": [9, 0] },
+    {
+      "type": "Buffer",
+      "data": [10, 11, 4, 68, 97, 118, 101, 40, 207, 247, 83, 227, 165, 27, 31, 64]
+    }
+  ]
+}
