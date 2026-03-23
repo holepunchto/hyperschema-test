@@ -1,0 +1,26 @@
+{
+  "values": [
+    { "id": 1, "status": "pending" },
+    { "id": 2, "status": "active" },
+    { "id": 3, "status": "closed" },
+    { "id": 100, "status": "pending" },
+    { "id": 0, "status": "active" },
+    { "id": 999, "status": "closed" },
+    { "id": 42, "status": "pending" },
+    { "id": 7, "status": "active" },
+    { "id": 50, "status": "closed" },
+    { "id": 12345, "status": "active" }
+  ],
+  "encoded": [
+    "0101",
+    "0202",
+    "0303",
+    "6401",
+    "0002",
+    "fde70303",
+    "2a01",
+    "0702",
+    "3203",
+    "fd393002"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "values": [
+    { "value": true },
+    { "value": false },
+    { "value": true },
+    { "value": false },
+    { "value": true },
+    { "value": false },
+    { "value": true },
+    { "value": true },
+    { "value": false },
+    { "value": false }
+  ],
+  "encoded": ["01", "00", "01", "00", "01", "00", "01", "01", "00", "00"]
+}

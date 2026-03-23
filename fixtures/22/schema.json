@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "status",
+      "namespace": "ns22",
+      "offset": 1,
+      "enum": [
+        {
+          "key": "pending",
+          "version": 1
+        },
+        {
+          "key": "active",
+          "version": 1
+        },
+        {
+          "key": "closed",
+          "version": 1
+        }
+      ],
+      "strings": true
+    },
+    {
+      "name": "ticket",
+      "namespace": "ns22",
+      "compact": false,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "status",
+          "required": true,
+          "type": "@ns22/status",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "field-types": {
+    "uint": ["27"],
+    "string": ["28"],
+    "bool": ["29"],
+    "float32": ["30"],
+    "float64": ["31"],
+    "buffer": ["5"],
+    "int": ["14"],
+    "uint8-uint16-uint32": ["13"],
+    "json": ["25"]
+  },
+  "struct-modifiers": {
+    "compact": ["3"],
+    "flags-position": ["11"],
+    "inline-compact": ["12"],
+    "use-default": ["16"],
+    "multiple-optional-flags": ["18"]
+  },
+  "composition": {
+    "nested-struct": ["8"],
+    "cross-namespace": ["10"],
+    "array-of-alias": ["6"],
+    "array-of-structs": ["7"],
+    "record-string-uint": ["23"],
+    "record-string-struct": ["24"]
+  },
+  "named-types": {
+    "alias": ["9"],
+    "enum-numeric": ["21"],
+    "enum-strings": ["22"]
+  },
+  "versioning": {
+    "versioned-dispatch": ["26"]
+  },
+  "integration": {
+    "basic-struct": ["1"],
+    "bool-and-float64": ["4"],
+    "float32-and-float64": ["15"],
+    "kitchen-sink": ["20"]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 0,
+  "schema": [
+    {
+      "name": "scores",
+      "namespace": "ns23",
+      "record": true,
+      "key": "string",
+      "value": "uint"
+    }
+  ]
+}
