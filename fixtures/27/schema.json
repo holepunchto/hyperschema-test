@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "counter",
+      "namespace": "ns27",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

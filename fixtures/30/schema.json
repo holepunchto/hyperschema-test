@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "measurement",
+      "namespace": "ns30",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "float32",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

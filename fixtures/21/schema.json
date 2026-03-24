@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "color",
+      "namespace": "ns21",
+      "offset": 1,
+      "enum": [
+        {
+          "key": "red",
+          "version": 1
+        },
+        {
+          "key": "green",
+          "version": 1
+        },
+        {
+          "key": "blue",
+          "version": 1
+        }
+      ],
+      "strings": false
+    },
+    {
+      "name": "item",
+      "namespace": "ns21",
+      "compact": false,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "name",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "color",
+          "required": true,
+          "type": "@ns21/color",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

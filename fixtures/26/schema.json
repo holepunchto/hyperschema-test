@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "msgV0",
+      "namespace": "ns26",
+      "compact": false,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "version",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "text",
+          "required": true,
+          "type": "string",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "msgV1",
+      "namespace": "ns26",
+      "compact": false,
+      "flagsPosition": 2,
+      "fields": [
+        {
+          "name": "version",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "text",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "priority",
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "namespace": "ns26",
+      "versions": [
+        {
+          "type": "@ns26/msgV0",
+          "map": null,
+          "version": 0
+        },
+        {
+          "type": "@ns26/msgV1",
+          "map": null,
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

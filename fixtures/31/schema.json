@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "precise",
+      "namespace": "ns31",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

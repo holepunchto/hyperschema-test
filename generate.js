@@ -961,3 +961,480 @@ test('complex struct – required, optional, array, record, nested, inline', asy
 
   await schema.save(cases, encoded)
 })
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 21. Enum (numeric)
+// ─────────────────────────────────────────────────────────────────────────────
+test('enum (numeric) field encoding', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '21')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns21')
+
+    ns.register({
+      name: 'color',
+      enum: ['red', 'green', 'blue']
+    })
+
+    ns.register({
+      name: 'item',
+      fields: [
+        { name: 'name', type: 'string', required: true },
+        { name: 'color', type: '@ns21/color', required: true }
+      ]
+    })
+  })
+
+  const colors = schema.module.getEnum('@ns21/color')
+  const enc = schema.module.resolveStruct('@ns21/item')
+
+  const cases = [
+    { name: 'apple', color: colors.red },
+    { name: 'leaf', color: colors.green },
+    { name: 'sky', color: colors.blue },
+    { name: 'cherry', color: colors.red },
+    { name: 'ocean', color: colors.blue },
+    { name: 'grass', color: colors.green },
+    { name: 'fire', color: colors.red },
+    { name: 'emerald', color: colors.green },
+    { name: 'sapphire', color: colors.blue },
+    { name: 'ruby', color: colors.red }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 22. Enum (strings)
+// ─────────────────────────────────────────────────────────────────────────────
+test('enum (strings) field encoding', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '22')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns22')
+
+    ns.register({
+      name: 'status',
+      strings: true,
+      enum: ['pending', 'active', 'closed']
+    })
+
+    ns.register({
+      name: 'ticket',
+      fields: [
+        { name: 'id', type: 'uint', required: true },
+        { name: 'status', type: '@ns22/status', required: true }
+      ]
+    })
+  })
+
+  const statuses = schema.module.getEnum('@ns22/status')
+  const enc = schema.module.resolveStruct('@ns22/ticket')
+
+  const cases = [
+    { id: 1, status: statuses.pending },
+    { id: 2, status: statuses.active },
+    { id: 3, status: statuses.closed },
+    { id: 100, status: statuses.pending },
+    { id: 0, status: statuses.active },
+    { id: 999, status: statuses.closed },
+    { id: 42, status: statuses.pending },
+    { id: 7, status: statuses.active },
+    { id: 50, status: statuses.closed },
+    { id: 12345, status: statuses.active }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 23. Record (string → uint)
+// ─────────────────────────────────────────────────────────────────────────────
+test('record (string keys, uint values)', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '23')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns23')
+
+    ns.register({
+      name: 'scores',
+      record: true,
+      key: 'string',
+      value: 'uint'
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns23/scores')
+
+  const cases = [
+    { alice: 10, bob: 20 },
+    { x: 0 },
+    { a: 1, b: 2, c: 3, d: 4, e: 5 },
+    {},
+    { longkey: 999999 },
+    { one: 1 },
+    { foo: 100, bar: 200, baz: 300 },
+    { z: 255 },
+    { hello: 42, world: 0 },
+    { k1: 1, k2: 2, k3: 3 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 24. Record (string → struct)
+// ─────────────────────────────────────────────────────────────────────────────
+test('record (string keys, struct values)', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '24')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns24')
+
+    ns.register({
+      name: 'entry',
+      compact: true,
+      fields: [
+        { name: 'value', type: 'uint', required: true },
+        { name: 'label', type: 'string', required: true }
+      ]
+    })
+
+    ns.register({
+      name: 'registry',
+      record: true,
+      key: 'string',
+      value: '@ns24/entry'
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns24/registry')
+
+  const cases = [
+    { foo: { value: 1, label: 'one' } },
+    { a: { value: 10, label: 'ten' }, b: { value: 20, label: 'twenty' } },
+    {},
+    { x: { value: 0, label: '' } },
+    {
+      k1: { value: 100, label: 'hundred' },
+      k2: { value: 200, label: 'two hundred' },
+      k3: { value: 300, label: 'three hundred' }
+    },
+    { single: { value: 42, label: 'answer' } },
+    { big: { value: 999999, label: 'large' } },
+    { a: { value: 1, label: 'a' }, z: { value: 26, label: 'z' } },
+    { test: { value: 7, label: 'seven' } },
+    { m: { value: 50, label: 'fifty' }, n: { value: 60, label: 'sixty' } }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 25. JSON field
+// ─────────────────────────────────────────────────────────────────────────────
+test('json field encoding', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '25')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns25')
+
+    ns.register({
+      name: 'doc',
+      fields: [
+        { name: 'id', type: 'uint', required: true },
+        { name: 'payload', type: 'json' }
+      ]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns25/doc')
+
+  const cases = [
+    { id: 1, payload: { key: 'value' } },
+    { id: 2, payload: null },
+    { id: 3, payload: [1, 2, 3] },
+    { id: 4, payload: 'just a string' },
+    { id: 5, payload: 42 },
+    { id: 6, payload: true },
+    { id: 7, payload: { nested: { deep: [1, 'two', false] } } },
+    { id: 8, payload: {} },
+    { id: 9, payload: [] },
+    { id: 10, payload: null }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 26. Versioned struct (version-tagged dispatch)
+// ─────────────────────────────────────────────────────────────────────────────
+test('versioned struct dispatch', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '26')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns26')
+
+    ns.register({
+      name: 'msgV0',
+      fields: [
+        { name: 'version', type: 'uint', required: true },
+        { name: 'text', type: 'string', required: true }
+      ]
+    })
+
+    ns.register({
+      name: 'msgV1',
+      fields: [
+        { name: 'version', type: 'uint', required: true },
+        { name: 'text', type: 'string', required: true },
+        { name: 'priority', type: 'uint' }
+      ]
+    })
+
+    ns.register({
+      name: 'message',
+      versions: [
+        { version: 0, type: '@ns26/msgV0' },
+        { version: 1, type: '@ns26/msgV1' }
+      ]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns26/message')
+
+  const cases = [
+    { version: 0, text: 'hello' },
+    { version: 1, text: 'hello', priority: 5 },
+    { version: 0, text: '' },
+    { version: 1, text: 'urgent', priority: 0 },
+    { version: 0, text: 'foo bar baz' },
+    { version: 1, text: 'x', priority: 999 },
+    { version: 0, text: 'a' },
+    { version: 1, text: 'long message here', priority: 1 },
+    { version: 0, text: 'test' },
+    { version: 1, text: 'final', priority: 42 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 27. uint field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('uint field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '27')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns27')
+    ns.register({
+      name: 'counter',
+      compact: true,
+      fields: [{ name: 'value', type: 'uint', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns27/counter')
+
+  const cases = [
+    { value: 0 },
+    { value: 1 },
+    { value: 127 },
+    { value: 128 },
+    { value: 255 },
+    { value: 256 },
+    { value: 65535 },
+    { value: 65536 },
+    { value: 2 ** 32 - 1 },
+    { value: 2 ** 32 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 28. string field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('string field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '28')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns28')
+    ns.register({
+      name: 'label',
+      compact: true,
+      fields: [{ name: 'value', type: 'string', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns28/label')
+
+  const cases = [
+    { value: '' },
+    { value: 'a' },
+    { value: 'hello' },
+    { value: 'hello world' },
+    { value: '🎉' },
+    { value: 'café' },
+    { value: 'a'.repeat(100) },
+    { value: 'line1\nline2' },
+    { value: '\t\t' },
+    { value: '日本語' }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 29. bool field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('bool field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '29')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns29')
+    ns.register({
+      name: 'flag',
+      compact: true,
+      fields: [{ name: 'value', type: 'bool', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns29/flag')
+
+  const cases = [
+    { value: true },
+    { value: false },
+    { value: true },
+    { value: false },
+    { value: true },
+    { value: false },
+    { value: true },
+    { value: true },
+    { value: false },
+    { value: false }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 30. float32 field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('float32 field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '30')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns30')
+    ns.register({
+      name: 'measurement',
+      compact: true,
+      fields: [{ name: 'value', type: 'float32', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns30/measurement')
+
+  const cases = [
+    { value: 0 },
+    { value: 1 },
+    { value: -1 },
+    { value: 0.5 },
+    { value: -0.5 },
+    { value: 3.140000104904175 },
+    { value: 1.0000001192092896 },
+    { value: 3.4028234663852886e38 },
+    { value: 1.1754943508222875e-38 },
+    { value: -273.1499938964844 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 31. float64 field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('float64 field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '31')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns31')
+    ns.register({
+      name: 'precise',
+      compact: true,
+      fields: [{ name: 'value', type: 'float64', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns31/precise')
+
+  const cases = [
+    { value: 0 },
+    { value: 1 },
+    { value: -1 },
+    { value: 0.1 + 0.2 },
+    { value: -0.5 },
+    { value: 3.141592653589793 },
+    { value: Number.MAX_SAFE_INTEGER },
+    { value: Number.MIN_SAFE_INTEGER },
+    { value: 1.7976931348623157e308 },
+    { value: 5e-324 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "entry",
+      "namespace": "ns24",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "registry",
+      "namespace": "ns24",
+      "record": true,
+      "key": "string",
+      "value": "@ns24/entry"
+    }
+  ]
+}

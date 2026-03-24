@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "flag",
+      "namespace": "ns29",
+      "compact": true,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "value",
+          "required": false,
+          "type": "bool",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}
