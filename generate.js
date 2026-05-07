@@ -1288,6 +1288,46 @@ test('uint field only', async (t) => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// 32. required + optional uint fields
+// ─────────────────────────────────────────────────────────────────────────────
+test('required and optional uint fields', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '32')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns32')
+    ns.register({
+      name: 'item',
+      fields: [
+        { name: 'id', type: 'uint', required: true },
+        { name: 'count', type: 'uint' }
+      ]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns32/item')
+
+  const cases = [
+    { id: 1, count: null },
+    { id: 1, count: 0 },
+    { id: 1, count: 42 },
+    { id: 255, count: null },
+    { id: 1, count: 127 },
+    { id: 1, count: 128 },
+    { id: 1, count: 65535 },
+    { id: 1, count: 65536 },
+    { id: 1, count: 2 ** 32 - 1 },
+    { id: 1, count: 2 ** 32 }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // 28. string field only
 // ─────────────────────────────────────────────────────────────────────────────
 test('string field only', async (t) => {
