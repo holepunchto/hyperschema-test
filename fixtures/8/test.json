@@ -1,1 +1,26 @@
-{"values":[{"name":"Alice","address":{"street":"1 Main St","city":"Springfield"}},{"name":"Bob","address":null},{"name":"Charlie","address":{"street":null,"city":"Shelbyville"}},{"name":"Diana","address":{"street":"5th Ave","city":null}},{"name":"Eve","address":{"street":null,"city":null}},{"name":"Frank","address":{"street":"42 Galaxy Way","city":"Cosmos"}},{"name":"Grace","address":{"street":"","city":""}},{"name":"Hank","address":null},{"name":"Iris","address":{"street":"A","city":"B"}},{"name":"Jack","address":{"street":"Long Street Name Here","city":"Townsville"}}],"encoded":["05416c6963650117030931204d61696e2053740b537072696e676669656c64","03426f6200","07436861726c6965010d020b5368656c627976696c6c65","054469616e610109010735746820417665","03457665010100","054672616e6b0116030d34322047616c6178792057617906436f736d6f73","054772616365010100","0448616e6b00","044972697301050301410142","044a61636b012203154c6f6e6720537472656574204e616d6520486572650a546f776e7376696c6c65"]}
+{
+  "values": [
+    { "name": "Alice", "address": { "street": "1 Main St", "city": "Springfield" } },
+    { "name": "Bob", "address": null },
+    { "name": "Charlie", "address": { "street": null, "city": "Shelbyville" } },
+    { "name": "Diana", "address": { "street": "5th Ave", "city": null } },
+    { "name": "Eve", "address": { "street": null, "city": null } },
+    { "name": "Frank", "address": { "street": "42 Galaxy Way", "city": "Cosmos" } },
+    { "name": "Grace", "address": { "street": "", "city": "" } },
+    { "name": "Hank", "address": null },
+    { "name": "Iris", "address": { "street": "A", "city": "B" } },
+    { "name": "Jack", "address": { "street": "Long Street Name Here", "city": "Townsville" } }
+  ],
+  "encoded": [
+    "05416c6963650117030931204d61696e2053740b537072696e676669656c64",
+    "03426f6200",
+    "07436861726c6965010d020b5368656c627976696c6c65",
+    "054469616e610109010735746820417665",
+    "03457665010100",
+    "054672616e6b0116030d34322047616c6178792057617906436f736d6f73",
+    "054772616365010100",
+    "0448616e6b00",
+    "044972697301050301410142",
+    "044a61636b012203154c6f6e6720537472656574204e616d6520486572650a546f776e7376696c6c65"
+  ]
+}

@@ -1,1 +1,26 @@
-{"values":[{"id":0,"label":null},{"id":1,"label":"hello"},{"id":255,"label":""},{"id":1000,"label":"foo bar"},{"id":99999,"label":null},{"id":1,"label":"x"},{"id":4294967296,"label":"big"},{"id":7,"label":"seven"},{"id":42,"label":null},{"id":123456789,"label":"large id"}],"encoded":["0000","01010568656c6c6f","fdff0000","fde8030107666f6f20626172","fe9f86010000","01010178","ff00000000010000000103626967","070105736576656e","2a00","fe15cd5b0701086c61726765206964"]}
+{
+  "values": [
+    { "id": 0, "label": null },
+    { "id": 1, "label": "hello" },
+    { "id": 255, "label": "" },
+    { "id": 1000, "label": "foo bar" },
+    { "id": 99999, "label": null },
+    { "id": 1, "label": "x" },
+    { "id": 4294967296, "label": "big" },
+    { "id": 7, "label": "seven" },
+    { "id": 42, "label": null },
+    { "id": 123456789, "label": "large id" }
+  ],
+  "encoded": [
+    "0000",
+    "01010568656c6c6f",
+    "fdff0000",
+    "fde8030107666f6f20626172",
+    "fe9f86010000",
+    "01010178",
+    "ff00000000010000000103626967",
+    "070105736576656e",
+    "2a00",
+    "fe15cd5b0701086c61726765206964"
+  ]
+}
