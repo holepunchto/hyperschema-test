@@ -15,7 +15,8 @@
     "flags-position": ["11"],
     "inline-compact": ["12"],
     "use-default": ["16"],
-    "multiple-optional-flags": ["18"]
+    "multiple-optional-flags": ["18"],
+    "optional-uint": ["32"]
   },
   "composition": {
     "nested-struct": ["8"],

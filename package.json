@@ -21,11 +21,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holepunchto/hyperschema-fixtures.git"
+    "url": "git+https://github.com/holepunchto/hyperschema-test.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/holepunchto/hyperschema-fixtures/issues"
+    "url": "https://github.com/holepunchto/hyperschema-test/issues"
   },
-  "homepage": "https://github.com/holepunchto/hyperschema-fixtures#readme"
+  "homepage": "https://github.com/holepunchto/hyperschema-test#readme"
 }
