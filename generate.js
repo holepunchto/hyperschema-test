@@ -1,13 +1,10 @@
 const test = require('brittle')
 const c = require('compact-encoding')
 const path = require('path')
-const fs = require('fs')
 
 const { createTestSchema } = require('./')
 
 const fixtureDir = path.resolve(__dirname, 'fixtures')
-
-let testIndex = 0
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Required uint field + optional string field (basic struct)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -650,13 +647,6 @@ test('float32 and float64 fields', async (t) => {
   })
 
   const enc = schema.module.resolveStruct('@ns15/floats')
-
-  // float32 has limited precision – round-trip values that survive the cast
-  const toF32 = (v) => {
-    const buf = Buffer.alloc(4)
-    buf.writeFloatBE(v, 0)
-    return buf.readFloatBE(0)
-  }
 
   const cases = [
     [0.0, 0.0],

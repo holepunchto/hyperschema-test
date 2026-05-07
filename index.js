@@ -42,7 +42,7 @@ class TestBuilder {
 
     await fs.promises.writeFile(
       p.resolve(this.fixtureDir, this.name, 'test.json'),
-      JSON.stringify({ values, encoded })
+      JSON.stringify({ values, encoded }) + '\n'
     )
   }
 }
