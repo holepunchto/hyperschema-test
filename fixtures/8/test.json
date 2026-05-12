@@ -1,15 +1,69 @@
 {
   "values": [
-    { "name": "Alice", "address": { "street": "1 Main St", "city": "Springfield" } },
-    { "name": "Bob", "address": null },
-    { "name": "Charlie", "address": { "street": null, "city": "Shelbyville" } },
-    { "name": "Diana", "address": { "street": "5th Ave", "city": null } },
-    { "name": "Eve", "address": { "street": null, "city": null } },
-    { "name": "Frank", "address": { "street": "42 Galaxy Way", "city": "Cosmos" } },
-    { "name": "Grace", "address": { "street": "", "city": "" } },
-    { "name": "Hank", "address": null },
-    { "name": "Iris", "address": { "street": "A", "city": "B" } },
-    { "name": "Jack", "address": { "street": "Long Street Name Here", "city": "Townsville" } }
+    {
+      "name": "Alice",
+      "address": {
+        "street": "1 Main St",
+        "city": "Springfield"
+      }
+    },
+    {
+      "name": "Bob",
+      "address": null
+    },
+    {
+      "name": "Charlie",
+      "address": {
+        "street": null,
+        "city": "Shelbyville"
+      }
+    },
+    {
+      "name": "Diana",
+      "address": {
+        "street": "5th Ave",
+        "city": null
+      }
+    },
+    {
+      "name": "Eve",
+      "address": {
+        "street": null,
+        "city": null
+      }
+    },
+    {
+      "name": "Frank",
+      "address": {
+        "street": "42 Galaxy Way",
+        "city": "Cosmos"
+      }
+    },
+    {
+      "name": "Grace",
+      "address": {
+        "street": "",
+        "city": ""
+      }
+    },
+    {
+      "name": "Hank",
+      "address": null
+    },
+    {
+      "name": "Iris",
+      "address": {
+        "street": "A",
+        "city": "B"
+      }
+    },
+    {
+      "name": "Jack",
+      "address": {
+        "street": "Long Street Name Here",
+        "city": "Townsville"
+      }
+    }
   ],
   "encoded": [
     "05416c6963650117030931204d61696e2053740b537072696e676669656c64",

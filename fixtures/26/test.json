@@ -1,15 +1,50 @@
 {
   "values": [
-    { "version": 0, "text": "hello" },
-    { "version": 1, "text": "hello", "priority": 5 },
-    { "version": 0, "text": "" },
-    { "version": 1, "text": "urgent", "priority": 0 },
-    { "version": 0, "text": "foo bar baz" },
-    { "version": 1, "text": "x", "priority": 999 },
-    { "version": 0, "text": "a" },
-    { "version": 1, "text": "long message here", "priority": 1 },
-    { "version": 0, "text": "test" },
-    { "version": 1, "text": "final", "priority": 42 }
+    {
+      "version": 0,
+      "text": "hello"
+    },
+    {
+      "version": 1,
+      "text": "hello",
+      "priority": 5
+    },
+    {
+      "version": 0,
+      "text": ""
+    },
+    {
+      "version": 1,
+      "text": "urgent",
+      "priority": 0
+    },
+    {
+      "version": 0,
+      "text": "foo bar baz"
+    },
+    {
+      "version": 1,
+      "text": "x",
+      "priority": 999
+    },
+    {
+      "version": 0,
+      "text": "a"
+    },
+    {
+      "version": 1,
+      "text": "long message here",
+      "priority": 1
+    },
+    {
+      "version": 0,
+      "text": "test"
+    },
+    {
+      "version": 1,
+      "text": "final",
+      "priority": 42
+    }
   ],
   "encoded": [
     "00000568656c6c6f",

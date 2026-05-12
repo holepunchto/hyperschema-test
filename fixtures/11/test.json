@@ -1,15 +1,55 @@
 {
   "values": [
-    { "a": null, "b": null, "c": null },
-    { "a": "hello", "b": null, "c": null },
-    { "a": null, "b": "world", "c": null },
-    { "a": null, "b": null, "c": 42 },
-    { "a": "foo", "b": "bar", "c": 7 },
-    { "a": "", "b": "", "c": 0 },
-    { "a": "x", "b": null, "c": 1 },
-    { "a": null, "b": "y", "c": 2 },
-    { "a": "aaa", "b": "bbb", "c": null },
-    { "a": "z", "b": "z", "c": 99 }
+    {
+      "a": null,
+      "b": null,
+      "c": null
+    },
+    {
+      "a": "hello",
+      "b": null,
+      "c": null
+    },
+    {
+      "a": null,
+      "b": "world",
+      "c": null
+    },
+    {
+      "a": null,
+      "b": null,
+      "c": 42
+    },
+    {
+      "a": "foo",
+      "b": "bar",
+      "c": 7
+    },
+    {
+      "a": "",
+      "b": "",
+      "c": 0
+    },
+    {
+      "a": "x",
+      "b": null,
+      "c": 1
+    },
+    {
+      "a": null,
+      "b": "y",
+      "c": 2
+    },
+    {
+      "a": "aaa",
+      "b": "bbb",
+      "c": null
+    },
+    {
+      "a": "z",
+      "b": "z",
+      "c": 99
+    }
   ],
   "encoded": [
     "00",

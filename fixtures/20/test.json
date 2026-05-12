@@ -1,45 +1,114 @@
 {
   "values": [
-    { "id": 1, "name": "Origin", "coord": { "lat": 0, "lng": 0 }, "labels": [] },
+    {
+      "id": 1,
+      "name": "Origin",
+      "coord": {
+        "lat": 0,
+        "lng": 0
+      },
+      "labels": []
+    },
     {
       "id": 2,
       "name": "Paris",
-      "coord": { "lat": 48.8566, "lng": 2.3522 },
-      "labels": ["city", "capital"],
+      "coord": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "labels": [
+        "city",
+        "capital"
+      ],
       "meta": 2161000,
       "rank": 1
     },
-    { "id": 3, "name": "Tokyo", "coord": null, "labels": null, "meta": null, "rank": 2 },
+    {
+      "id": 3,
+      "name": "Tokyo",
+      "coord": null,
+      "labels": null,
+      "meta": null,
+      "rank": 2
+    },
     {
       "id": 4,
       "name": "New York",
-      "coord": { "lat": 40.7128, "lng": -74.006 },
-      "labels": ["city"],
+      "coord": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "labels": [
+        "city"
+      ],
       "meta": 10001
     },
-    { "id": 5, "name": "Null Island", "coord": { "lat": 0, "lng": 0 }, "labels": ["joke"] },
+    {
+      "id": 5,
+      "name": "Null Island",
+      "coord": {
+        "lat": 0,
+        "lng": 0
+      },
+      "labels": [
+        "joke"
+      ]
+    },
     {
       "id": 6,
       "name": "Sydney",
-      "coord": { "lat": -33.8688, "lng": 151.2093 },
+      "coord": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
       "labels": [],
       "rank": 3
     },
-    { "id": 7, "name": "Empty", "coord": null, "labels": [] },
+    {
+      "id": 7,
+      "name": "Empty",
+      "coord": null,
+      "labels": []
+    },
     {
       "id": 8,
       "name": "London",
-      "coord": { "lat": 51.5074, "lng": -0.1278 },
-      "labels": ["city", "capital", "historic"],
+      "coord": {
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      "labels": [
+        "city",
+        "capital",
+        "historic"
+      ],
       "meta": 1572,
       "rank": 4
     },
-    { "id": 9, "name": "Tiny", "coord": { "lat": 1, "lng": 1 }, "labels": null, "rank": 99 },
+    {
+      "id": 9,
+      "name": "Tiny",
+      "coord": {
+        "lat": 1,
+        "lng": 1
+      },
+      "labels": null,
+      "rank": 99
+    },
     {
       "id": 10,
       "name": "Full",
-      "coord": { "lat": -90, "lng": 180 },
-      "labels": ["a", "b", "c", "d", "e"],
+      "coord": {
+        "lat": -90,
+        "lng": 180
+      },
+      "labels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "rank": 0
     }
   ],

@@ -1,15 +1,45 @@
 {
   "values": [
-    { "name": "apple", "color": 1 },
-    { "name": "leaf", "color": 2 },
-    { "name": "sky", "color": 3 },
-    { "name": "cherry", "color": 1 },
-    { "name": "ocean", "color": 3 },
-    { "name": "grass", "color": 2 },
-    { "name": "fire", "color": 1 },
-    { "name": "emerald", "color": 2 },
-    { "name": "sapphire", "color": 3 },
-    { "name": "ruby", "color": 1 }
+    {
+      "name": "apple",
+      "color": 1
+    },
+    {
+      "name": "leaf",
+      "color": 2
+    },
+    {
+      "name": "sky",
+      "color": 3
+    },
+    {
+      "name": "cherry",
+      "color": 1
+    },
+    {
+      "name": "ocean",
+      "color": 3
+    },
+    {
+      "name": "grass",
+      "color": 2
+    },
+    {
+      "name": "fire",
+      "color": 1
+    },
+    {
+      "name": "emerald",
+      "color": 2
+    },
+    {
+      "name": "sapphire",
+      "color": 3
+    },
+    {
+      "name": "ruby",
+      "color": 1
+    }
   ],
   "encoded": [
     "056170706c6501",
