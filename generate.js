@@ -5,6 +5,12 @@ const path = require('path')
 const { createTestSchema } = require('./')
 
 const fixtureDir = path.resolve(__dirname, 'fixtures')
+
+// Sort a record object's top-level keys so canonical bytes are deterministic
+// across implementations (Swift Dictionary has no defined iteration order).
+function sortRecord(obj) {
+  return Object.fromEntries(Object.entries(obj).sort(([a], [b]) => a.localeCompare(b)))
+}
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Required uint field + optional string field (basic struct)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1079,12 +1085,10 @@ test('record (string keys, uint values)', async (t) => {
     { k1: 1, k2: 2, k3: 3 }
   ]
 
-  const encoded = []
-  for (const obj of cases) {
-    encoded.push(c.encode(enc, obj).toString('hex'))
-  }
+  const sortedCases = cases.map(sortRecord)
+  const encoded = sortedCases.map((obj) => c.encode(enc, obj).toString('hex'))
 
-  await schema.save(cases, encoded)
+  await schema.save(sortedCases, encoded)
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1132,12 +1136,10 @@ test('record (string keys, struct values)', async (t) => {
     { m: { value: 50, label: 'fifty' }, n: { value: 60, label: 'sixty' } }
   ]
 
-  const encoded = []
-  for (const obj of cases) {
-    encoded.push(c.encode(enc, obj).toString('hex'))
-  }
+  const sortedCases = cases.map(sortRecord)
+  const encoded = sortedCases.map((obj) => c.encode(enc, obj).toString('hex'))
 
-  await schema.save(cases, encoded)
+  await schema.save(sortedCases, encoded)
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
