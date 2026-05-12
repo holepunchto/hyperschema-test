@@ -1,15 +1,45 @@
 {
   "values": [
-    { "id": 1, "count": null },
-    { "id": 1, "count": 0 },
-    { "id": 1, "count": 42 },
-    { "id": 255, "count": null },
-    { "id": 1, "count": 127 },
-    { "id": 1, "count": 128 },
-    { "id": 1, "count": 65535 },
-    { "id": 1, "count": 65536 },
-    { "id": 1, "count": 4294967295 },
-    { "id": 1, "count": 4294967296 }
+    {
+      "id": 1,
+      "count": null
+    },
+    {
+      "id": 1,
+      "count": 0
+    },
+    {
+      "id": 1,
+      "count": 42
+    },
+    {
+      "id": 255,
+      "count": null
+    },
+    {
+      "id": 1,
+      "count": 127
+    },
+    {
+      "id": 1,
+      "count": 128
+    },
+    {
+      "id": 1,
+      "count": 65535
+    },
+    {
+      "id": 1,
+      "count": 65536
+    },
+    {
+      "id": 1,
+      "count": 4294967295
+    },
+    {
+      "id": 1,
+      "count": 4294967296
+    }
   ],
   "encoded": [
     "0100",

@@ -1,15 +1,76 @@
 {
   "values": [
-    { "type": "click", "payload": "button-1", "ts": { "sec": 1700000000, "nsec": 0 } },
-    { "type": "submit", "payload": null, "ts": { "sec": 0, "nsec": 500000000 } },
-    { "type": "load", "payload": "/page", "ts": null },
-    { "type": "error", "payload": "oops", "ts": { "sec": 9999, "nsec": 999999 } },
-    { "type": "open", "payload": null, "ts": { "sec": 1, "nsec": 1 } },
-    { "type": "close", "payload": "tab-2", "ts": null },
-    { "type": "resize", "payload": "1024x768", "ts": { "sec": 100, "nsec": 0 } },
-    { "type": "scroll", "payload": null, "ts": { "sec": 200, "nsec": 0 } },
-    { "type": "focus", "payload": "input#1", "ts": { "sec": 300, "nsec": 0 } },
-    { "type": "blur", "payload": null, "ts": null }
+    {
+      "type": "click",
+      "payload": "button-1",
+      "ts": {
+        "sec": 1700000000,
+        "nsec": 0
+      }
+    },
+    {
+      "type": "submit",
+      "payload": null,
+      "ts": {
+        "sec": 0,
+        "nsec": 500000000
+      }
+    },
+    {
+      "type": "load",
+      "payload": "/page",
+      "ts": null
+    },
+    {
+      "type": "error",
+      "payload": "oops",
+      "ts": {
+        "sec": 9999,
+        "nsec": 999999
+      }
+    },
+    {
+      "type": "open",
+      "payload": null,
+      "ts": {
+        "sec": 1,
+        "nsec": 1
+      }
+    },
+    {
+      "type": "close",
+      "payload": "tab-2",
+      "ts": null
+    },
+    {
+      "type": "resize",
+      "payload": "1024x768",
+      "ts": {
+        "sec": 100,
+        "nsec": 0
+      }
+    },
+    {
+      "type": "scroll",
+      "payload": null,
+      "ts": {
+        "sec": 200,
+        "nsec": 0
+      }
+    },
+    {
+      "type": "focus",
+      "payload": "input#1",
+      "ts": {
+        "sec": 300,
+        "nsec": 0
+      }
+    },
+    {
+      "type": "blur",
+      "payload": null,
+      "ts": null
+    }
   ],
   "encoded": [
     "05636c69636b0308627574746f6e2d31fe00f1536500",

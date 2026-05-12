@@ -1,19 +1,80 @@
 {
   "values": [
-    { "foo": { "value": 1, "label": "one" } },
-    { "a": { "value": 10, "label": "ten" }, "b": { "value": 20, "label": "twenty" } },
-    {},
-    { "x": { "value": 0, "label": "" } },
     {
-      "k1": { "value": 100, "label": "hundred" },
-      "k2": { "value": 200, "label": "two hundred" },
-      "k3": { "value": 300, "label": "three hundred" }
+      "foo": {
+        "value": 1,
+        "label": "one"
+      }
     },
-    { "single": { "value": 42, "label": "answer" } },
-    { "big": { "value": 999999, "label": "large" } },
-    { "a": { "value": 1, "label": "a" }, "z": { "value": 26, "label": "z" } },
-    { "test": { "value": 7, "label": "seven" } },
-    { "m": { "value": 50, "label": "fifty" }, "n": { "value": 60, "label": "sixty" } }
+    {
+      "a": {
+        "value": 10,
+        "label": "ten"
+      },
+      "b": {
+        "value": 20,
+        "label": "twenty"
+      }
+    },
+    {},
+    {
+      "x": {
+        "value": 0,
+        "label": ""
+      }
+    },
+    {
+      "k1": {
+        "value": 100,
+        "label": "hundred"
+      },
+      "k2": {
+        "value": 200,
+        "label": "two hundred"
+      },
+      "k3": {
+        "value": 300,
+        "label": "three hundred"
+      }
+    },
+    {
+      "single": {
+        "value": 42,
+        "label": "answer"
+      }
+    },
+    {
+      "big": {
+        "value": 999999,
+        "label": "large"
+      }
+    },
+    {
+      "a": {
+        "value": 1,
+        "label": "a"
+      },
+      "z": {
+        "value": 26,
+        "label": "z"
+      }
+    },
+    {
+      "test": {
+        "value": 7,
+        "label": "seven"
+      }
+    },
+    {
+      "m": {
+        "value": 50,
+        "label": "fifty"
+      },
+      "n": {
+        "value": 60,
+        "label": "sixty"
+      }
+    }
   ],
   "encoded": [
     "0103666f6f01036f6e65",

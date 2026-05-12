@@ -1,29 +1,87 @@
 {
   "values": [
     [],
-    [{ "key": "a", "value": 1 }],
     [
-      { "key": "x", "value": 0 },
-      { "key": "y", "value": 255 }
+      {
+        "key": "a",
+        "value": 1
+      }
     ],
     [
-      { "key": "foo", "value": 100 },
-      { "key": "bar", "value": 200 },
-      { "key": "baz", "value": 300 }
+      {
+        "key": "x",
+        "value": 0
+      },
+      {
+        "key": "y",
+        "value": 255
+      }
     ],
-    [{ "key": "", "value": 0 }],
-    [{ "key": "hello world", "value": 42 }],
     [
-      { "key": "a", "value": 1 },
-      { "key": "b", "value": 2 },
-      { "key": "c", "value": 3 },
-      { "key": "d", "value": 4 }
+      {
+        "key": "foo",
+        "value": 100
+      },
+      {
+        "key": "bar",
+        "value": 200
+      },
+      {
+        "key": "baz",
+        "value": 300
+      }
     ],
-    [{ "key": "unicode 🎉", "value": 7 }],
-    [{ "key": "z", "value": 99999 }],
     [
-      { "key": "k1", "value": 1 },
-      { "key": "k2", "value": 2 }
+      {
+        "key": "",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "key": "hello world",
+        "value": 42
+      }
+    ],
+    [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 2
+      },
+      {
+        "key": "c",
+        "value": 3
+      },
+      {
+        "key": "d",
+        "value": 4
+      }
+    ],
+    [
+      {
+        "key": "unicode 🎉",
+        "value": 7
+      }
+    ],
+    [
+      {
+        "key": "z",
+        "value": 99999
+      }
+    ],
+    [
+      {
+        "key": "k1",
+        "value": 1
+      },
+      {
+        "key": "k2",
+        "value": 2
+      }
     ]
   ],
   "encoded": [

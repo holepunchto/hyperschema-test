@@ -1,15 +1,45 @@
 {
   "values": [
-    { "id": 0, "label": null },
-    { "id": 1, "label": "hello" },
-    { "id": 255, "label": "" },
-    { "id": 1000, "label": "foo bar" },
-    { "id": 99999, "label": null },
-    { "id": 1, "label": "x" },
-    { "id": 4294967296, "label": "big" },
-    { "id": 7, "label": "seven" },
-    { "id": 42, "label": null },
-    { "id": 123456789, "label": "large id" }
+    {
+      "id": 0,
+      "label": null
+    },
+    {
+      "id": 1,
+      "label": "hello"
+    },
+    {
+      "id": 255,
+      "label": ""
+    },
+    {
+      "id": 1000,
+      "label": "foo bar"
+    },
+    {
+      "id": 99999,
+      "label": null
+    },
+    {
+      "id": 1,
+      "label": "x"
+    },
+    {
+      "id": 4294967296,
+      "label": "big"
+    },
+    {
+      "id": 7,
+      "label": "seven"
+    },
+    {
+      "id": 42,
+      "label": null
+    },
+    {
+      "id": 123456789,
+      "label": "large id"
+    }
   ],
   "encoded": [
     "0000",
