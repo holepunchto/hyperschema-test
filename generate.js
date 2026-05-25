@@ -1434,6 +1434,82 @@ test('float32 field only', async (t) => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// 33. fixed32 field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('fixed32 field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '33')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns33')
+    ns.register({
+      name: 'hash',
+      compact: true,
+      fields: [{ name: 'value', type: 'fixed32', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns33/hash')
+
+  const cases = [
+    { value: Buffer.alloc(32, 0x00) },
+    { value: Buffer.alloc(32, 0xff) },
+    { value: Buffer.alloc(32, 0x01) },
+    { value: Buffer.alloc(32, 0xab) },
+    { value: Buffer.from(Array.from({ length: 32 }, (_, i) => i)) },
+    { value: Buffer.from(Array.from({ length: 32 }, (_, i) => 255 - i)) },
+    { value: Buffer.alloc(32, 0x42) },
+    { value: Buffer.from(Array.from({ length: 32 }, (_, i) => i * 2 % 256)) },
+    { value: Buffer.alloc(32, 0x7f) },
+    { value: Buffer.alloc(32, 0x80) }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 34. fixed64 field only
+// ─────────────────────────────────────────────────────────────────────────────
+test('fixed64 field only', async (t) => {
+  const schema = await createTestSchema(t, fixtureDir, '34')
+
+  await schema.rebuild((s) => {
+    const ns = s.namespace('ns34')
+    ns.register({
+      name: 'key',
+      compact: true,
+      fields: [{ name: 'value', type: 'fixed64', required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct('@ns34/key')
+
+  const cases = [
+    { value: Buffer.alloc(64, 0x00) },
+    { value: Buffer.alloc(64, 0xff) },
+    { value: Buffer.alloc(64, 0x01) },
+    { value: Buffer.alloc(64, 0xab) },
+    { value: Buffer.from(Array.from({ length: 64 }, (_, i) => i % 256)) },
+    { value: Buffer.from(Array.from({ length: 64 }, (_, i) => 255 - (i % 256))) },
+    { value: Buffer.alloc(64, 0x42) },
+    { value: Buffer.from(Array.from({ length: 64 }, (_, i) => i * 3 % 256)) },
+    { value: Buffer.alloc(64, 0x7f) },
+    { value: Buffer.alloc(64, 0x80) }
+  ]
+
+  const encoded = []
+  for (const obj of cases) {
+    encoded.push(c.encode(enc, obj).toString('hex'))
+  }
+
+  await schema.save(cases, encoded)
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // 31. float64 field only
 // ─────────────────────────────────────────────────────────────────────────────
 test('float64 field only', async (t) => {
