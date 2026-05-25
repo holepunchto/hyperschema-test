@@ -8,7 +8,9 @@
     "buffer": ["5"],
     "int": ["14"],
     "uint8-uint16-uint32": ["13"],
-    "json": ["25"]
+    "json": ["25"],
+    "fixed32": ["33"],
+    "fixed64": ["34"]
   },
   "struct-modifiers": {
     "compact": ["3"],
