@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "sample",
+      "namespace": "ns37",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "uint48",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}

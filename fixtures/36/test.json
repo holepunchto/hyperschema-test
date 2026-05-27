@@ -1,0 +1,9 @@
+{
+  "values": [
+    { "value": 0 },
+    { "value": 1 },
+    { "value": 4294967295 },
+    { "value": 1099511627775 }
+  ],
+  "encoded": ["0000000000", "0100000000", "ffffffff00", "ffffffffff"]
+}
