@@ -1458,7 +1458,7 @@ test('fixed32 field only', async (t) => {
     { value: Buffer.from(Array.from({ length: 32 }, (_, i) => i)) },
     { value: Buffer.from(Array.from({ length: 32 }, (_, i) => 255 - i)) },
     { value: Buffer.alloc(32, 0x42) },
-    { value: Buffer.from(Array.from({ length: 32 }, (_, i) => i * 2 % 256)) },
+    { value: Buffer.from(Array.from({ length: 32 }, (_, i) => (i * 2) % 256)) },
     { value: Buffer.alloc(32, 0x7f) },
     { value: Buffer.alloc(32, 0x80) }
   ]
@@ -1496,7 +1496,7 @@ test('fixed64 field only', async (t) => {
     { value: Buffer.from(Array.from({ length: 64 }, (_, i) => i % 256)) },
     { value: Buffer.from(Array.from({ length: 64 }, (_, i) => 255 - (i % 256))) },
     { value: Buffer.alloc(64, 0x42) },
-    { value: Buffer.from(Array.from({ length: 64 }, (_, i) => i * 3 % 256)) },
+    { value: Buffer.from(Array.from({ length: 64 }, (_, i) => (i * 3) % 256)) },
     { value: Buffer.alloc(64, 0x7f) },
     { value: Buffer.alloc(64, 0x80) }
   ]
@@ -1546,3 +1546,49 @@ test('float64 field only', async (t) => {
 
   await schema.save(cases, encoded)
 })
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 35–42. Odd-width integer types (uint/int 24, 40, 48, 56)
+//
+// Each fixture is a single compact field of one width, exercising 0, 1, and the
+// type's boundary values. Unsigned widths run to 2^bits - 1. Signed widths run to
+// ±2^(bits-1), except int56: a signed value is zig-zag encoded as ~2·|value|, so
+// the widest int56 JS can faithfully represent is bounded by Number.MAX_SAFE_INTEGER
+// (2^53 - 1) on the zig-zag, i.e. ±2^52, not the type's full ±2^55. compact-encoding
+// throws past that (use biguint/bigint), so the corpus cannot carry larger int56
+// vectors; a true 64-bit implementation still handles the full range.
+// ─────────────────────────────────────────────────────────────────────────────
+async function oddWidthFixture(t, name, ns, type, values) {
+  const schema = await createTestSchema(t, fixtureDir, name)
+
+  await schema.rebuild((s) => {
+    s.namespace(ns).register({
+      name: 'sample',
+      compact: true,
+      fields: [{ name: 'value', type, required: true }]
+    })
+  })
+
+  const enc = schema.module.resolveStruct(`@${ns}/sample`)
+  const cases = values.map((value) => ({ value }))
+  const encoded = cases.map((obj) => c.encode(enc, obj).toString('hex'))
+
+  await schema.save(cases, encoded)
+}
+
+test('uint24 field only', (t) =>
+  oddWidthFixture(t, '35', 'ns35', 'uint24', [0, 1, 255, 256, 65535, 2 ** 24 - 1]))
+test('uint40 field only', (t) =>
+  oddWidthFixture(t, '36', 'ns36', 'uint40', [0, 1, 2 ** 32 - 1, 2 ** 40 - 1]))
+test('uint48 field only', (t) =>
+  oddWidthFixture(t, '37', 'ns37', 'uint48', [0, 1, 2 ** 32 - 1, 2 ** 48 - 1]))
+test('uint56 field only', (t) =>
+  oddWidthFixture(t, '38', 'ns38', 'uint56', [0, 1, 2 ** 32 - 1, Number.MAX_SAFE_INTEGER]))
+test('int24 field only', (t) =>
+  oddWidthFixture(t, '39', 'ns39', 'int24', [0, 1, -1, 2 ** 23 - 1, -(2 ** 23)]))
+test('int40 field only', (t) =>
+  oddWidthFixture(t, '40', 'ns40', 'int40', [0, 1, -1, 2 ** 39 - 1, -(2 ** 39)]))
+test('int48 field only', (t) =>
+  oddWidthFixture(t, '41', 'ns41', 'int48', [0, 1, -1, 2 ** 47 - 1, -(2 ** 47)]))
+test('int56 field only', (t) =>
+  oddWidthFixture(t, '42', 'ns42', 'int56', [0, 1, -1, 2 ** 52 - 1, -(2 ** 52)]))

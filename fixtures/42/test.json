@@ -1,16 +1,26 @@
 {
   "values": [
-    { "value": 0 },
-    { "value": 1 },
-    { "value": -1 },
-    { "value": 9007199254740991 },
-    { "value": -9007199254740991 }
+    {
+      "value": 0
+    },
+    {
+      "value": 1
+    },
+    {
+      "value": -1
+    },
+    {
+      "value": 4503599627370495
+    },
+    {
+      "value": -4503599627370496
+    }
   ],
   "encoded": [
     "00000000000000",
     "02000000000000",
     "01000000000000",
-    "feffffffffff3f",
-    "fcffffffffff3f"
+    "feffffffffff1f",
+    "ffffffffffff1f"
   ]
 }
