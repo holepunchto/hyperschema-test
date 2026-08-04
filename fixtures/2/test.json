@@ -1,0 +1,135 @@
+{
+  "values": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "email": "alice@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "email": null
+    },
+    {
+      "id": 3,
+      "name": null,
+      "email": "c@d.com"
+    },
+    {
+      "id": 10,
+      "name": "Charlie",
+      "email": "charlie@test.io"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "email": ""
+    },
+    {
+      "id": 99,
+      "name": "Dave",
+      "email": "dave@x.com"
+    },
+    {
+      "id": 5,
+      "name": "Eve",
+      "email": null
+    },
+    {
+      "id": 7,
+      "name": "Frank",
+      "email": "frank@f.net"
+    },
+    {
+      "id": 8,
+      "name": "Grace",
+      "email": "g@h.org"
+    },
+    {
+      "id": 9,
+      "name": "Hank",
+      "email": null
+    }
+  ],
+  "encoded": [
+    "010305416c69636511616c696365406578616d706c652e636f6d",
+    "020103426f62",
+    "0302076340642e636f6d",
+    "0a0307436861726c69650f636861726c696540746573742e696f",
+    "0000",
+    "630304446176650a6461766540782e636f6d",
+    "050103457665",
+    "0703054672616e6b0b6672616e6b40662e6e6574",
+    "0803054772616365076740682e6f7267",
+    "09010448616e6b"
+  ],
+  "versioned": [
+    {
+      "version": 1,
+      "values": [
+        {
+          "id": 1,
+          "name": "Alice",
+          "email": null
+        },
+        {
+          "id": 2,
+          "name": "Bob",
+          "email": null
+        },
+        {
+          "id": 3,
+          "name": null,
+          "email": null
+        },
+        {
+          "id": 10,
+          "name": "Charlie",
+          "email": null
+        },
+        {
+          "id": 0,
+          "name": null,
+          "email": null
+        },
+        {
+          "id": 99,
+          "name": "Dave",
+          "email": null
+        },
+        {
+          "id": 5,
+          "name": "Eve",
+          "email": null
+        },
+        {
+          "id": 7,
+          "name": "Frank",
+          "email": null
+        },
+        {
+          "id": 8,
+          "name": "Grace",
+          "email": null
+        },
+        {
+          "id": 9,
+          "name": "Hank",
+          "email": null
+        }
+      ],
+      "encoded": [
+        "010105416c696365",
+        "020103426f62",
+        "0300",
+        "0a0107436861726c6965",
+        "0000",
+        "63010444617665",
+        "050103457665",
+        "0701054672616e6b",
+        "0801054772616365",
+        "09010448616e6b"
+      ]
+    }
+  ]
+}

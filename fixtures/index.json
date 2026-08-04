@@ -42,7 +42,9 @@
     "enum-strings": ["22"]
   },
   "versioning": {
-    "versioned-dispatch": ["26"]
+    "versioned-dispatch": ["26"],
+    "two-version-evolution": ["2"],
+    "three-version-evolution": ["19"]
   },
   "integration": {
     "basic-struct": ["1"],

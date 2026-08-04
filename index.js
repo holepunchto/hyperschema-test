@@ -37,12 +37,17 @@ class TestBuilder {
   }
 
   // Asserts that the committed fixture is what hyperschema produces now. Pass
-  // --update to rewrite the fixtures instead
-  async save(values, encoded) {
+  // --update to rewrite the fixtures instead.
+  //
+  // values and encoded are always for the latest version. Older versions of a
+  // schema go in versioned, as [{ version, values, encoded }]
+  async save(values, encoded, versioned) {
     const dir = p.resolve(this.fixtureDir, this.name)
 
     const schema = await fs.promises.readFile(p.join(this.dir, 'schema.json'), 'utf-8')
-    const test = JSON.stringify({ values, encoded }, null, 2) + '\n'
+    const test =
+      JSON.stringify(versioned ? { values, encoded, versioned } : { values, encoded }, null, 2) +
+      '\n'
 
     if (update) {
       await fs.promises.mkdir(dir, { recursive: true })

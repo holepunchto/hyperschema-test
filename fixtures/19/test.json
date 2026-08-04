@@ -1,0 +1,248 @@
+{
+  "values": [
+    {
+      "id": 1,
+      "title": "Hello",
+      "body": "World",
+      "tags": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": 2,
+      "title": null,
+      "body": "content",
+      "tags": []
+    },
+    {
+      "id": 3,
+      "title": "No body",
+      "body": null,
+      "tags": null
+    },
+    {
+      "id": 4,
+      "title": "Tagged",
+      "body": "stuff",
+      "tags": [
+        "x"
+      ]
+    },
+    {
+      "id": 5,
+      "title": null,
+      "body": null,
+      "tags": null
+    },
+    {
+      "id": 6,
+      "title": "A",
+      "body": "B",
+      "tags": [
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Seven",
+      "body": null,
+      "tags": []
+    },
+    {
+      "id": 8,
+      "title": null,
+      "body": "eight",
+      "tags": [
+        "f"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Nine",
+      "body": "nine",
+      "tags": null
+    },
+    {
+      "id": 10,
+      "title": "Ten",
+      "body": "ten",
+      "tags": [
+        "g",
+        "h",
+        "i",
+        "j"
+      ]
+    }
+  ],
+  "encoded": [
+    "01070548656c6c6f05576f726c640201610162",
+    "020607636f6e74656e7400",
+    "0301074e6f20626f6479",
+    "040706546167676564057374756666010178",
+    "0500",
+    "06070141014203016301640165",
+    "070505536576656e00",
+    "0806056569676874010166",
+    "0903044e696e65046e696e65",
+    "0a070354656e0374656e04016701680169016a"
+  ],
+  "versioned": [
+    {
+      "version": 1,
+      "values": [
+        {
+          "id": 1,
+          "title": "Hello",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 2,
+          "title": null,
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 3,
+          "title": "No body",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 4,
+          "title": "Tagged",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 5,
+          "title": null,
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 6,
+          "title": "A",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 7,
+          "title": "Seven",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 8,
+          "title": null,
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 9,
+          "title": "Nine",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 10,
+          "title": "Ten",
+          "body": null,
+          "tags": null
+        }
+      ],
+      "encoded": [
+        "01010548656c6c6f",
+        "0200",
+        "0301074e6f20626f6479",
+        "040106546167676564",
+        "0500",
+        "06010141",
+        "070105536576656e",
+        "0800",
+        "0901044e696e65",
+        "0a010354656e"
+      ]
+    },
+    {
+      "version": 2,
+      "values": [
+        {
+          "id": 1,
+          "title": "Hello",
+          "body": "World",
+          "tags": null
+        },
+        {
+          "id": 2,
+          "title": null,
+          "body": "content",
+          "tags": null
+        },
+        {
+          "id": 3,
+          "title": "No body",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 4,
+          "title": "Tagged",
+          "body": "stuff",
+          "tags": null
+        },
+        {
+          "id": 5,
+          "title": null,
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 6,
+          "title": "A",
+          "body": "B",
+          "tags": null
+        },
+        {
+          "id": 7,
+          "title": "Seven",
+          "body": null,
+          "tags": null
+        },
+        {
+          "id": 8,
+          "title": null,
+          "body": "eight",
+          "tags": null
+        },
+        {
+          "id": 9,
+          "title": "Nine",
+          "body": "nine",
+          "tags": null
+        },
+        {
+          "id": 10,
+          "title": "Ten",
+          "body": "ten",
+          "tags": null
+        }
+      ],
+      "encoded": [
+        "01030548656c6c6f05576f726c64",
+        "020207636f6e74656e74",
+        "0301074e6f20626f6479",
+        "040306546167676564057374756666",
+        "0500",
+        "060301410142",
+        "070105536576656e",
+        "0802056569676874",
+        "0903044e696e65046e696e65",
+        "0a030354656e0374656e"
+      ]
+    }
+  ]
+}

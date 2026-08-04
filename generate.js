@@ -54,7 +54,7 @@ test('required uint and optional string', async (t) => {
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. Versioned struct – append-only extension
 // ─────────────────────────────────────────────────────────────────────────────
-test.skip('versioned struct – v1 and v2 encodings', async (t) => {
+test('versioned struct – v1 and v2 encodings', async (t) => {
   const schema = await createTestSchema(t, fixtureDir, '2')
 
   // v1
@@ -99,15 +99,29 @@ test.skip('versioned struct – v1 and v2 encodings', async (t) => {
     { id: 9, name: 'Hank', email: null }
   ]
 
+  const encoded = []
+  const v1values = []
+  const v1encoded = []
+
   for (const obj of objects) {
+    // Falsy optionals encode as absent, so they decode back as null
+    const name = obj.name || null
+    const email = obj.email || null
+
     // v1 round-trip drops email
     const v1 = c.decode(enc1, c.encode(enc1, obj))
-    t.alike(v1, { id: obj.id, name: obj.name, email: null })
+    t.alike(v1, { id: obj.id, name, email: null })
 
     // v2 round-trip keeps email
     const v2 = c.decode(enc2, c.encode(enc2, obj))
-    t.alike(v2, obj)
+    t.alike(v2, { id: obj.id, name, email })
+
+    encoded.push(c.encode(enc2, obj).toString('hex'))
+    v1values.push(v1)
+    v1encoded.push(c.encode(enc1, v1).toString('hex'))
   }
+
+  await schema.save(objects, encoded, [{ version: 1, values: v1values, encoded: v1encoded }])
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -767,12 +781,15 @@ test('multiple optional fields and flag byte combinations', async (t) => {
 // ─────────────────────────────────────────────────────────────────────────────
 // 19. Three-version evolution (v1 → v2 → v3)
 // ─────────────────────────────────────────────────────────────────────────────
-test.skip('three-version schema evolution', async (t) => {
+test('three-version schema evolution', async (t) => {
   const schema = await createTestSchema(t, fixtureDir, '19')
 
-  // v1
+  // v1. The alias is registered first so that 'doc' stays the last type in the
+  // schema, which is the type consumers encode
   await schema.rebuild((s) => {
-    s.namespace('ns19').register({
+    const ns = s.namespace('ns19')
+    ns.register({ name: 'tag', alias: 'string' })
+    ns.register({
       name: 'doc',
       fields: [
         { name: 'id', type: 'uint', required: true },
@@ -793,10 +810,9 @@ test.skip('three-version schema evolution', async (t) => {
     })
   })
 
-  // v3 – adds 'tags' array (alias first)
+  // v3 – adds 'tags' array
   await schema.rebuild((s) => {
     const ns = s.namespace('ns19')
-    ns.register({ name: 'tag', alias: 'string' })
     ns.register({
       name: 'doc',
       fields: [
@@ -825,16 +841,35 @@ test.skip('three-version schema evolution', async (t) => {
     { id: 10, title: 'Ten', body: 'ten', tags: ['g', 'h', 'i', 'j'] }
   ]
 
+  const encoded = []
+  const older = [
+    { version: 1, values: [], encoded: [] },
+    { version: 2, values: [], encoded: [] }
+  ]
+
   for (const obj of objects) {
+    // Falsy optionals encode as absent, so they decode back as null
+    const title = obj.title || null
+    const body = obj.body || null
+
     const v1 = c.decode(enc1, c.encode(enc1, obj))
-    t.alike(v1, { id: obj.id, title: obj.title, body: null, tags: null })
+    t.alike(v1, { id: obj.id, title, body: null, tags: null })
 
     const v2 = c.decode(enc2, c.encode(enc2, obj))
-    t.alike(v2, { id: obj.id, title: obj.title, body: obj.body, tags: null })
+    t.alike(v2, { id: obj.id, title, body, tags: null })
 
     const v3 = c.decode(enc3, c.encode(enc3, obj))
-    t.alike(v3, obj)
+    t.alike(v3, { id: obj.id, title, body, tags: obj.tags })
+
+    encoded.push(c.encode(enc3, obj).toString('hex'))
+
+    older[0].values.push(v1)
+    older[0].encoded.push(c.encode(enc1, v1).toString('hex'))
+    older[1].values.push(v2)
+    older[1].encoded.push(c.encode(enc2, v2).toString('hex'))
   }
+
+  await schema.save(objects, encoded, older)
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
