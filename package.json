@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "node generate.js",
+    "generate": "node generate.js --update",
+    "lint": "prettier . --check && lunte",
     "format": "prettier . --write"
   },
   "author": "",
@@ -11,7 +14,7 @@
   "devDependencies": {
     "brittle": "^3.19.1",
     "compact-encoding": "^3.2.0",
-    "hyperschema": "^1.20.1",
+    "hyperschema": "1.22.0",
     "lunte": "^1.6.0",
     "prettier": "^3.8.1",
     "prettier-config-holepunch": "^2.0.0",

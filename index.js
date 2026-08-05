@@ -4,6 +4,8 @@ const tmp = require('test-tmp')
 
 const Hyperschema = require('hyperschema')
 
+const update = process.argv.includes('--update')
+
 class TestBuilder {
   constructor(dir, fixtureDir, name, test) {
     this.test = test
@@ -34,16 +36,42 @@ class TestBuilder {
     return this.module.resolveStruct(name, version)
   }
 
+  // Asserts that the committed fixture is what hyperschema produces now. Pass
+  // --update to rewrite the fixtures instead
   async save(values, encoded) {
-    await fs.promises.copyFile(
-      p.join(this.dir, 'schema.json'),
-      p.resolve(this.fixtureDir, this.name, 'schema.json')
-    )
+    const dir = p.resolve(this.fixtureDir, this.name)
 
-    await fs.promises.writeFile(
-      p.resolve(this.fixtureDir, this.name, 'test.json'),
-      JSON.stringify({ values, encoded }, null, 2) + '\n'
-    )
+    const schema = await fs.promises.readFile(p.join(this.dir, 'schema.json'), 'utf-8')
+    const test = JSON.stringify({ values, encoded }, null, 2) + '\n'
+
+    if (update) {
+      await fs.promises.mkdir(dir, { recursive: true })
+      await fs.promises.writeFile(p.join(dir, 'schema.json'), schema)
+      await fs.promises.writeFile(p.join(dir, 'test.json'), test)
+      return
+    }
+
+    const committed = await readFixture(dir)
+
+    if (committed === null) {
+      this.test.fail(`fixture ${this.name} is not committed, run npm run generate`)
+      return
+    }
+
+    this.test.is(committed.schema, schema, `fixture ${this.name} schema.json`)
+    this.test.is(committed.test, test, `fixture ${this.name} test.json`)
+  }
+}
+
+async function readFixture(dir) {
+  try {
+    return {
+      schema: await fs.promises.readFile(p.join(dir, 'schema.json'), 'utf-8'),
+      test: await fs.promises.readFile(p.join(dir, 'test.json'), 'utf-8')
+    }
+  } catch (err) {
+    if (err.code === 'ENOENT') return null
+    throw err
   }
 }
 
