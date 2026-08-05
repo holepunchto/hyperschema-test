@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "schema": [
+    {
+      "name": "tag",
+      "namespace": "ns19",
+      "alias": "string",
+      "version": 1
+    },
+    {
+      "name": "doc",
+      "namespace": "ns19",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "version": 2
+        },
+        {
+          "name": "tags",
+          "array": true,
+          "type": "@ns19/tag",
+          "version": 3
+        }
+      ]
+    }
+  ]
+}

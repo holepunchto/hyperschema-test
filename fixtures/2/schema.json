@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "schema": [
+    {
+      "name": "user",
+      "namespace": "ns2",
+      "compact": false,
+      "flagsPosition": 1,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "version": 2
+        }
+      ]
+    }
+  ]
+}
