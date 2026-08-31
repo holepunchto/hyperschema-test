@@ -51,12 +51,21 @@ fixture 18   { id: 4, active: true }  ->  04 04
 
 Fixture 29 is the degenerate case - a struct whose only field is an optional `bool`, which therefore encodes to a single flags byte and nothing else.
 
+### The flags word's own codec
+
+The width of the flags word depends on `compact`:
+
+- a **non-compact** struct writes it as a varint, the same `uint` used everywhere else in the format;
+- a **compact** struct writes it as a fixed-width unsigned integer, sized to hold the struct's largest possible flag value - one byte while that value is below 256, two below 65536, and so on.
+
+**No fixture pins this rule, and an implementation that gets it wrong passes the whole corpus.** The largest number of optional fields in any struct here is five, so the largest flag value is 31, and a varint and a fixed-width byte encode every value below 253 identically. The two readings diverge only once a struct has eight or more optional fields with enough of them set. The rule is stated here because the JavaScript and Python generators independently agree on it, not because the bytes demonstrate it.
+
 ## Not yet specified
 
 Each of these is exercised by a fixture, so the behaviour is pinned by bytes; none of it is yet written down here. Listed roughly in the order a port will need it.
 
-- **The flags word's own codec.** Whether it is a varint or a fixed-width integer, and whether that differs between compact and non-compact structs. `fixtures/index.json` lists `compact` (3), `flags-position` (11) and `multiple-optional-flags` (18).
-- **`compact`.** What the modifier changes beyond the cases above, and how it interacts with optional fields.
+- **A fixture that discriminates the flags word's codec.** A compact struct with eight or more optional fields, encoded with a flag value of 253 or above, is the smallest case where a varint and a fixed-width word disagree. Until one exists the rule above rests on two implementations agreeing rather than on bytes.
+- **`compact`.** What the modifier changes beyond the flags word: whether it affects field layout, nesting or anything else.
 - **Nested structs**, and the framed-versus-inline distinction: fixtures 8, 12.
 - **Arrays and records**: fixtures 6, 7, 23, 24.
 - **Aliases and enums**: fixtures 9, 21, 22.
